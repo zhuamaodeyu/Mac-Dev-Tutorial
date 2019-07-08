@@ -15,15 +15,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        windowController = MainWindowController.init(window: NSWindow.init(contentRect: NSRect.init(x: 0, y: 0, width: 1000, height: 500), styleMask: [.titled,.resizable,.closable,.miniaturizable], backing: .buffered, defer: false))
+        windowController = MainWindowController.init(window:
+            NSWindow.init(contentRect: NSRect.init(x: 0, y: 0, width: 1000, height: 500),
+                          styleMask: [.titled,.resizable,.closable,.miniaturizable],
+                          backing: .buffered,
+                          defer: false))
         
         self.windowController.showWindow(self)
-    }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-
-    
+    }    
 }
 

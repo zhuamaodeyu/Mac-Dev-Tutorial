@@ -30,9 +30,11 @@ class MainWindowController: NSWindowController {
         configWindowFrameSize()
         self.window?.backgroundColor = NSColor.red
         setWindowIcon()
-        self.contentViewController = MainViewController.init()
+        let vc = MainViewController.init()
+        vc.view.frame = CGRect.init(x: 0, y: 0, width: 1000, height: 500)
+        // 这行代码执行完毕 MainViewController view 才会有 window 值，否则是没有的
+        self.contentViewController = vc
     }
-
 }
 
 extension MainWindowController {
