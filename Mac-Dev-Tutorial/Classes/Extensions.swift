@@ -16,19 +16,7 @@ public protocol CreateProtocol {
 
 
 extension NSWindowController {
-    public func updateWindowFrame(frame: NSRect) {
-         self.window?.setFrame(frame, display: true)
-    }
-    
-    
-    public func set(title: String, icon name: String?) {
-        self.window?.representedURL = URL.init(string: "WindowTitle")
-        self.window?.title = title
-        if let n = name {
-            self.window?.standardWindowButton(.documentIconButton)?.image = NSImage.init(named: n)
-        }
-    }
-    
+
     
     public func openPanel() {
         let panel = NSOpenPanel.init()
@@ -43,31 +31,6 @@ extension NSWindowController {
     
 }
 
-
-extension NSAlert {
-    public static func alert(title: String,
-                             desc: String,
-                             button titles:[String],
-                             style: NSAlert.Style,
-                             from window: NSWindow,
-                             completion:@escaping ((NSApplication.ModalResponse)->Void)) {
-        
-        let alert = NSAlert.init()
-        
-        for t in titles {
-            alert.addButton(withTitle: t)
-        }
-        //提示的标题
-        alert.messageText = title
-        //提示的详细内容
-        alert.informativeText = desc
-        //设置告警风格
-        alert.alertStyle = style
-        alert.beginSheetModal(for: window) { (returnCode) in
-            completion(returnCode)
-        }
-    }
-}
 
 extension NSScrollView : CreateProtocol {
     public typealias Element = NSScrollView
@@ -95,7 +58,7 @@ extension NSTableView: CreateProtocol {
         tableView.focusRingType = .none
         tableView.backgroundColor = NSColor.clear
         tableView.gridStyleMask = [.solidHorizontalGridLineMask, .solidVerticalGridLineMask]
-        tableView.usesAlternatingRowBackgroundColors = true 
+        tableView.usesAlternatingRowBackgroundColors = true
         return tableView
     }
     

@@ -22,3 +22,58 @@
 4. 创建 ViewController  
     * xib 创建  
     * 手工创建，重写 loadView 方法， 不能调  super 方法，在此方法中设置 self.view 
+
+
+5. window 大小的问题  
+    1. window中的控制器view 大小会影响window的大小， 如果 viewController view 没有设置大小，默认是window将不显示， 如果 view 大于 window大小，将以view为标准显示  
+    2. viewController view 的frame 更改，必须在设置 `windowController.contentViewController` 之前更改，之后更改无效
+
+
+6. 代码初始化  controller 
+    * windowController   
+     
+		```
+		 override init(window: NSWindow?) {
+        	super.init(window: window)
+        	window?.delegate = self
+        	windowDidLoad()
+    	}
+		
+		```
+		此处采用手动调用 `windowDidLoad`方法，系统将不会自动调用 此系列方法  
+	* viewController  
+	
+		```
+		override func loadView() {
+        	self.view = NSView.init()
+    	}
+		```
+		在 `loadView` 方法中设置 view， __不能调用 `super`方法__   
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

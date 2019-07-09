@@ -31,7 +31,7 @@ class MainWindowController: NSWindowController {
         self.window?.backgroundColor = NSColor.red
         setWindowIcon()
         let vc = MainViewController.init()
-        vc.view.frame = CGRect.init(x: 0, y: 0, width: 1000, height: 500)
+        vc.view.frame = CGRect.init(x: 0, y: 0, width: 400, height: 500)
         // 这行代码执行完毕 MainViewController view 才会有 window 值，否则是没有的
         self.contentViewController = vc
     }
@@ -40,7 +40,7 @@ class MainWindowController: NSWindowController {
 extension MainWindowController {
     private func configWindowFrameSize() {
         var frame = NSScreen.main?.visibleFrame
-        frame?.size.width = 1000
+        frame?.size.width = 400
         frame?.size.height = 500
         self.window?.setFrame(frame!, display: true)
     }
