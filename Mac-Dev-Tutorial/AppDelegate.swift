@@ -12,7 +12,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     private var windowController: MainWindowController!
-
+    private var dockMenu: NSMenu!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         windowController = MainWindowController.init(window:
@@ -22,6 +22,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                           defer: false))
         
         self.windowController.showWindow(self)
-    }    
+    }
+    
+    
+    func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
+        
+        return dockMenu
+    }
 }
 

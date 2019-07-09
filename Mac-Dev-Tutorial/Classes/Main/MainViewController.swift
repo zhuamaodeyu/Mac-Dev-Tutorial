@@ -77,6 +77,17 @@ extension MainViewController {
         dataSource.append("NSAlert")
         dataSource.append("NSSplitView")
         dataSource.append("NSCollectionView")
+        dataSource.append("NSPopover")
+        dataSource.append("NSStepper")
+        dataSource.append("NSSegmentedControl")
+        dataSource.append("NSComboBox")
+        dataSource.append("NSBox")
+        dataSource.append("NSToolBar")
+        dataSource.append("NSStatusBar")
+        dataSource.append("NSContainerView")
+        dataSource.append("NSMenu")
+        dataSource.append("Custom View")
+        dataSource.append("Animation")
     }
 }
 
@@ -101,5 +112,11 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
     }
     func tableViewSelectionDidChange(_ notification: Notification) {
         print("====")
+        Process.runRoot(command: "/usr/bin/which", arg: ["pod"]) { (output, error) in
+            print("====\(String(describing: output)), \(String(describing: error))")
+        }
+        Process.run(command: "/usr/bin/which", args: ["pod"], complation: { (process, outpot, error) in
+            print("====\(String(describing: outpot)), \(String(describing: error))")
+        })
     }
 }

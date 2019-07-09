@@ -43,7 +43,7 @@ extension Process {
     ///   - path: path
     ///   - args: 参数
     ///   - complation: 执行结果回调
-    public static func run(command path :String, args: [String], environment:[String:String] = [:],complation:((_ process: Process,_ output: String?, _ error:String?)-> Void)? = nil) {
+    public static func run(command path :String, args: [String] = [], environment:[String:String] = [:],complation:((_ process: Process,_ output: String?, _ error:String?)-> Void)? = nil) {
         let process = Process.init()
         process.launchPath = path
         process.arguments = args
@@ -58,6 +58,17 @@ extension Process {
         process.standardError = errPipe
         
         process.launch()
+//
+//        pipe.fileHandleForReading.readabilityHandler = { pipe in
+//            complation?(process,
+//                String(data: pipe.availableData, encoding: .utf8), nil)
+//        }
+//        errPipe.fileHandleForReading.readabilityHandler = { pipe in
+//            complation?(process,
+//                       nil,
+//                       String(data: pipe.availableData, encoding: .utf8))
+//        }
+//
         complation?(process,
                     String.init(data: pipe.fileHandleForReading.readDataToEndOfFile(), encoding: String.Encoding.utf8),
                     String.init(data: errPipe.fileHandleForReading.readDataToEndOfFile(), encoding: .utf8))
@@ -72,23 +83,23 @@ extension Process {
     ///   - path: command path
     ///   - arg: args
     ///   - complation: <#complation description#>
-    public static func run(command path: String, arg:[String], complation:((_ output: String?, _ error:String?)-> Void)? = nil) {
+    public static func runRoot(command path: String, arg:[String] = [], complation:((_ output: String?, _ error:String?)-> Void)? = nil) {
 //        STPrivilegedTask
-        let errDic = AutoreleasingUnsafeMutablePointer<NSDictionary?>.init(bitPattern: 3)
+        var errDic: NSDictionary?
         let argsString = arg.joined(separator: " ")
         let script = "do shell script \"\(path) \(argsString)\" with administrator privileges"
         let appScript = NSAppleScript.init(source: script)
-        let eventResult = appScript?.executeAndReturnError(errDic)
+        let eventResult = appScript?.executeAndReturnError(&errDic)
         if eventResult?.booleanValue ?? false {
             
             var errorMessage:String? = nil
             
-            if let errorCode = errDic?.pointee?.value(forKey: NSAppleScript.errorNumber) as? NSNumber, errorCode.intValue == -128 {
+            if let errorCode = errDic?.value(forKey: NSAppleScript.errorNumber) as? NSNumber, errorCode.intValue == -128 {
                 errorMessage = "The administrator password is required to do this."
             }
             
             if errorMessage?.isEmpty ?? true {
-                 errorMessage = errDic?.pointee?.value(forKey: NSAppleScript.errorMessage) as? String
+                 errorMessage = errDic?.value(forKey: NSAppleScript.errorMessage) as? String
             }
             complation?(nil, errorMessage)
         }else {
