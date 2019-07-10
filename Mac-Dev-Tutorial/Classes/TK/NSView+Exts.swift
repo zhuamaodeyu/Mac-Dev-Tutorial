@@ -208,3 +208,21 @@ extension NSView {
     }
 
 }
+
+
+extension NSView {
+    public func sub(view: NSView, level: Int) {
+        guard view.subviews.count > 0 else {
+            return
+        }
+        var back = ""
+        for v in view.subviews {
+            for _ in 0...level {
+                back += " "
+            }
+            // 输出多个空格
+            debugPrint("\(back) \(level):\(v.className)")
+            self.sub(view: v, level: level + 1)
+        }
+    }
+}

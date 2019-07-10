@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="Aad-lq-wmp">
+            <objects>
+                <windowController storyboardIdentifier="TableWindowController" id="uBi-sc-o7d" customClass="TableWindowController" customModule="Mac_Dev_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="6b3-IC-1ym">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="294" y="313" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+                        <connections>
+                            <outlet property="delegate" destination="uBi-sc-o7d" id="6na-KJ-OFB"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="mzR-Ub-ZCD" kind="relationship" relationship="window.shadowedContentViewController" id="8Fa-sx-GHf"/>
+                    </connections>
+                </windowController>
+                <customObject id="vc2-8L-fxx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-353" y="163"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="vk8-J2-6Sd">
+            <objects>
+                <viewController id="mzR-Ub-ZCD" customClass="TableViewController" customModule="Mac_Dev_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="uWp-Xl-xAp">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="mzZ-jd-Emz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="148" y="139"/>
+        </scene>
+    </scenes>
+</document>

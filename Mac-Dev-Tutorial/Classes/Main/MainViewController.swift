@@ -111,12 +111,38 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
         return 55
     }
     func tableViewSelectionDidChange(_ notification: Notification) {
-        print("====")
-        Process.runRoot(command: "/usr/bin/which", arg: ["pod"]) { (output, error) in
-            print("====\(String(describing: output)), \(String(describing: error))")
+//        print("====")
+//        Process.runRoot(command: "/usr/bin/which", arg: ["pod"]) { (output, error) in
+//            print("====\(String(describing: output)), \(String(describing: error))")
+//        }
+//        Process.run(command: "/usr/bin/which", args: ["pod"], complation: { (process, outpot, error) in
+//            print("====\(String(describing: outpot)), \(String(describing: error))")
+//        })
+        switch tableView.selectedRow {
+        case 0:
+            break
+        case 1:
+            break
+        case 2:
+            break
+        case 3:
+            break
+        case 4:
+            break
+        case 5:
+            break
+        case 6:
+            let wc = NSStoryboard.windowController(name: "ButtonWindowController", storyboard: "Button")
+            wc?.window?.orderFront(nil)
+            break
+        case 7:
+            let wc = NSStoryboard.windowController(name: "TableWindowController", storyboard: "TableView")
+            wc?.window?.orderFront(nil)
+            self.view.window?.close()
+            break
+            
+        default:
+            break
         }
-        Process.run(command: "/usr/bin/which", args: ["pod"], complation: { (process, outpot, error) in
-            print("====\(String(describing: outpot)), \(String(describing: error))")
-        })
     }
 }

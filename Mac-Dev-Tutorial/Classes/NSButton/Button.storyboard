@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="PEH-IS-SOZ">
+            <objects>
+                <windowController storyboardIdentifier="ButtonWindowController" id="sZl-By-cWq" customClass="ButtonWindowController" customModule="Mac_Dev_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="5Ju-ti-Mci">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="294" y="313" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+                        <connections>
+                            <outlet property="delegate" destination="sZl-By-cWq" id="6kv-dt-cWa"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="dpp-Lu-TQ6" kind="relationship" relationship="window.shadowedContentViewController" id="U60-cp-84d"/>
+                    </connections>
+                </windowController>
+                <customObject id="SRh-4G-a1z" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2" y="157"/>
+        </scene>
+        <!--Button View Controller-->
+        <scene sceneID="07l-8c-Mhv">
+            <objects>
+                <viewController storyboardIdentifier="ButtonViewController" id="dpp-Lu-TQ6" customClass="ButtonViewController" customModule="Mac_Dev_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="iXu-tC-9eE">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="6Nm-Se-rye" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="522" y="209"/>
+        </scene>
+    </scenes>
+</document>

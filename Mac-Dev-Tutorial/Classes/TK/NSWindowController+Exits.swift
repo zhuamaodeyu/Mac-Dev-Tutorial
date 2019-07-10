@@ -26,3 +26,20 @@ extension NSWindowController {
     }
     
 }
+
+
+extension NSWindowController {
+    
+    
+    public func openPanel() {
+        let panel = NSOpenPanel.init()
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = true
+        panel.allowsMultipleSelection = true
+        panel.allowedFileTypes = [""]
+        panel.begin { (result) in
+            
+        }
+    }
+    
+}
