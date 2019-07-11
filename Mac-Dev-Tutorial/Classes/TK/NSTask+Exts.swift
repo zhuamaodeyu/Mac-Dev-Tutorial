@@ -58,17 +58,8 @@ extension Process {
         process.standardError = errPipe
         
         process.launch()
-//
-//        pipe.fileHandleForReading.readabilityHandler = { pipe in
-//            complation?(process,
-//                String(data: pipe.availableData, encoding: .utf8), nil)
-//        }
-//        errPipe.fileHandleForReading.readabilityHandler = { pipe in
-//            complation?(process,
-//                       nil,
-//                       String(data: pipe.availableData, encoding: .utf8))
-//        }
-//
+        
+        
         complation?(process,
                     String.init(data: pipe.fileHandleForReading.readDataToEndOfFile(), encoding: String.Encoding.utf8),
                     String.init(data: errPipe.fileHandleForReading.readDataToEndOfFile(), encoding: .utf8))

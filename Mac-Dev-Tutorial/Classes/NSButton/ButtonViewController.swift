@@ -25,10 +25,22 @@ class ButtonViewController: NSViewController {
     private var button11: NSButton!
     private var button12: NSButton!
     
+    
+    private var topView: TopView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         installSubviews()
         initSubviews()
+        
+        topView = TopView.init()
+        view.addSubview(topView)
+        
+        topView.snp.makeConstraints { (make) in
+            make.left.right.top.equalTo(view)
+            make.height.equalTo(80)
+        }
+        
     }
     
     private func installSubviews() {

@@ -118,16 +118,31 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
 //        Process.run(command: "/usr/bin/which", args: ["pod"], complation: { (process, outpot, error) in
 //            print("====\(String(describing: outpot)), \(String(describing: error))")
 //        })
+//        guard let bunlder = Bundle.main.path(forResource: "pod", ofType: ".rb", inDirectory: "lib") else {
+//            return
+//        }
+        //            bunlder,"try","LANG=en_US.UTF-8"
+//        Process.run(command: "/usr/bin/env", args: [ "ruby", bunlder, "--version" ]) { (process, output, error) in
+//            if let e = error {
+//                print("\(e)")
+//            }
+//            
+//        }
         switch tableView.selectedRow {
         case 0:
+            
             break
         case 1:
+            let wc = NSStoryboard.windowController(name: "ViewWindowController", storyboard: "View")
+            wc?.window?.orderFront(nil)
             break
         case 2:
             break
         case 3:
             break
         case 4:
+            let wc = NSStoryboard.windowController(name: "TextWindowController", storyboard: "TextView")
+            wc?.window?.orderFront(nil)
             break
         case 5:
             break
