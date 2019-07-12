@@ -8,4 +8,5 @@ target 'Mac-Dev-Tutorial' do
   pod 'SnapKit'
   # Pods for Mac-Dev-Tutorial
   pod 'LeanCloud'
+  pod 'STPrivilegedTask'
 end

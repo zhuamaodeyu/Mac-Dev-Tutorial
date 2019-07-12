@@ -111,23 +111,17 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
         return 55
     }
     func tableViewSelectionDidChange(_ notification: Notification) {
-//        print("====")
-//        Process.runRoot(command: "/usr/bin/which", arg: ["pod"]) { (output, error) in
-//            print("====\(String(describing: output)), \(String(describing: error))")
-//        }
-//        Process.run(command: "/usr/bin/which", args: ["pod"], complation: { (process, outpot, error) in
-//            print("====\(String(describing: outpot)), \(String(describing: error))")
-//        })
-//        guard let bunlder = Bundle.main.path(forResource: "pod", ofType: ".rb", inDirectory: "lib") else {
-//            return
-//        }
-        //            bunlder,"try","LANG=en_US.UTF-8"
-//        Process.run(command: "/usr/bin/env", args: [ "ruby", bunlder, "--version" ]) { (process, output, error) in
+
+//        Process.run(command: "/usr/bin/env", args: [ "ruby", bunlder, "--version","LANG=en_US.UTF-8","--no-ansi"]) { (process, output, error) in
 //            if let e = error {
 //                print("\(e)")
 //            }
-//            
+//
 //        }
+        
+        let cocoapods = Command.shared?.podInstall()
+        
+        
         switch tableView.selectedRow {
         case 0:
             
